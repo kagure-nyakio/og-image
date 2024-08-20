@@ -6,12 +6,10 @@ defmodule OgImageWeb.ImageHTML do
   """
   def light(assigns) do
     ~H"""
-    <body class="bg-[#F8F2E6] flex flex-col h-screen">
-      <div class="shrink-0 pt-24 px-20 text-gray-900">
-        <.savvycal_logo />
-      </div>
-      <div class="grow flex items-center px-20">
-        <h1 class="font-extrabold text-gray-900 text-[7rem] leading-[1.2]">
+    <body class="bg-[#F8F2E6] grid h-screen items-center">
+      <div  class="w-[80%] mx-auto">
+        <.intro_text class="text-black"/>
+        <h1 class="font-semibold text-[#D2FD88] text-[3rem] leading-[1.2]">
           <%= @text %>
         </h1>
       </div>
@@ -24,12 +22,10 @@ defmodule OgImageWeb.ImageHTML do
   """
   def dark(assigns) do
     ~H"""
-    <body class="bg-green-texture flex flex-col h-screen">
-      <div class="shrink-0 pt-24 px-20 text-white">
-        <.savvycal_logo />
-      </div>
-      <div class="grow flex items-center px-20">
-        <h1 class="font-extrabold text-[#D2FD88] text-[7rem] leading-[1.2]">
+    <body class="bg-[#020202] grid h-screen items-center">
+      <div class="w-[80%] mx-auto">
+        <.intro_text class="text-white mb-32"/>
+        <h1 class="font-semibold text-[#D2FD88] text-[3rem] leading-[1.2]">
           <%= @text %>
         </h1>
       </div>
@@ -44,9 +40,28 @@ defmodule OgImageWeb.ImageHTML do
     ~H"""
     <body class="bg-[#F8F2E6] flex items-center justify-center h-screen">
       <div>
-        <.savvycal_logo height="148" />
+         <.intro_text class="text-black"/>
       </div>
     </body>
+    """
+  end
+
+  defp intro_text(assigns) do
+    ~H"""
+    <div class={["flex items-center justify-between w-full", @class]}>
+      <h1 class="font-bold text-[2.5rem] leading-[1.2]">
+        Nyakio Muriuki
+      </h1>
+
+      <div>
+        <p class="text-[2rem] font-semibold" mb-6>
+          Sofware Developer
+        </p>
+        <p class="text-center">
+          nyakio.me
+        </p>
+      </div>
+    </div>
     """
   end
 end
